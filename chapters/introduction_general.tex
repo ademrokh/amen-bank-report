@@ -1,0 +1,27 @@
+% General Introduction
+
+\chapter*{General Introduction}
+\addcontentsline{toc}{chapter}{General Introduction}
+
+\section*{The Privacy Dilemma in Centralized Platforms}
+In the modern digital era, community communication platforms have transitioned from niche gaming accessories to foundational global social infrastructures. Proprietary services, notably \textbf{Discord}, Slack, and Microsoft Teams, host hundreds of millions of active users daily. However, this high concentration of communication data has driven the operators of these centralized platforms to implement increasingly invasive data management policies. 
+
+Under evolving data harvesting models, centralized servers collect, index, and exploit vast quantities of user conversation logs, files, metadata, and user activity profiles. These data reservoirs are frequently utilized for algorithmic tracking, advertisement profiling, or corporate intelligence, presenting a severe risk of data breaches, internal corporate surveillance, and systematic erosion of individual digital privacy. Because these platforms hold the primary cryptographic keys and decrypt all message payloads on their servers, they act as a massive \textbf{Single Point of Failure (SPoF)} for user privacy.
+
+\section*{Project Objectives: Secure by Default}
+To address these critical security vulnerabilities, this project aims to design, implement, and deploy a secure, privacy-respecting, \textbf{open-source alternative} to proprietary platforms. The primary objective is to build a platform that is \textbf{secure by default} while maintaining the fluid, modern user experience that communities expect:
+\begin{enumerate}
+    \item \tech{Zero-Knowledge Server Architecture}: The relay server is kept completely blind to conversation data. Text payload encryption and decryption occur solely on client devices, ensuring that the central database only stores unreadable ciphertexts.
+    \item \tech{Client-Side End-to-End Encryption (E2EE)}: Messages are protected using advanced symmetric cryptographic pipelines (AES-256-GCM) with key agreements established peer-to-peer via Diffie-Hellman key exchanges.
+    \item \tech{Peer-to-Peer (P2P) Media Architecture}: Real-time voice and video streams bypass centralized media servers completely. High-fidelity audio streams flow directly IP-to-IP between active participants, secured against wiretapping via DTLS and SRTP protocols.
+\end{enumerate}
+
+\section*{Engineering Methodology}
+Building a secure communication platform with high cryptographic constraints alongside a seamless, lag-free client interface requires structured software engineering. We adopted the \textbf{Agile Scrum methodology} (integrating a dedicated "Security Champion" role) to guide our project lifecycle:
+\begin{itemize}
+    \item \textbf{Chapter 1: General Project Framework and State of the Art} analyzes proprietary platform data policies, critiques existing architectures, and outlines our proposed solution.
+    \item \textbf{Chapter 2: Requirements Specification, Analysis, and Architecture} maps Actors, captures functional security specifications, defines non-functional benchmarks, and presents the Zero-Knowledge logical/physical layouts.
+    \item \textbf{Chapter 3: Release 1 (Cryptographic Foundations and Access Control)} details Sprint 1 (Argon2 authentication and client-side key generation vault) and Sprint 2 (secure server creation and encrypted permission access control).
+    \item \textbf{Chapter 4: Release 2 (End-to-End Encrypted Communication and P2P)} presents Sprint 3 (E2EE text messaging with Diffie-Hellman), Sprint 4 (P2P WebRTC voice calling), and Sprint 5 (Docker self-hosting and auditability).
+\end{itemize}
+The report concludes with an evaluation of achievements, lessons learned, and future open-source roadmap perspectives.

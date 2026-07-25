@@ -1,0 +1,35 @@
+% General Conclusion
+
+\chapter*{General Conclusion}
+\addcontentsline{toc}{chapter}{General Conclusion}
+
+\section*{Summary of Achievements}
+This project successfully designed and deployed a secure, privacy-respecting, \textbf{open-source alternative} to proprietary centralized social platforms. By utilizing a \textbf{Zero-Knowledge Architecture}, the platform addresses the surveillance risks associated with centralized data harvesting. 
+
+Through E2EE text messaging and peer-to-peer (P2P) WebRTC voice calls, our implementation ensures that the signaling server acts strictly as a neutral relay, storing \textbf{no plaintext data}. While the platform currently utilizes server-managed keys for encryption to facilitate accessibility, the architecture is designed to be easily migrated to full client-side key custody. The development timeline was successfully executed across five distinct sprints under the Agile Scrum framework (facilitated by a dedicated Security Champion), providing a fully functional platform that preserves user digital sovereignty by default.
+
+\section*{Cryptographic vs. UX Reflection}
+A key technical challenge was balancing strong cryptographic constraints with a fluid, modern user experience. Secure architectures introduce performance challenges that required optimization:
+\begin{itemize}
+    \item \textbf{Symmetric Encryption Processing}: Performing client-side AES-256-GCM encryption and decryption on the browser thread requires careful optimization to prevent UI freezing. We addressed this by ensuring cryptographic operations do not block the main render loop.
+    \item \textbf{Secure Search Operations}: Because the backend server does not store plaintext messages, global chat searches had to be re-engineered. This required implementing client-side indexing and searching over decrypted logs cached in local IndexedDB containers, ensuring search functionality without compromising data privacy on the server.
+    \item \textbf{NAT Traversal Complexity}: Bypassing centralized media servers for P2P voice calling required configuring robust STUN/TURN connection fallback pipelines. This ensures connection reliability under restrictive corporate firewalls without compromising media confidentiality via DTLS/SRTP.
+\end{itemize}
+We resolved these bottlenecks by optimizing browser rendering cycles and indexing queries, demonstrating that robust security and high client responsiveness are not mutually exclusive.
+
+\section*{Future Perspectives}
+While the platform is fully completed, we have established a clear technology roadmap for future open-source developments to address current limitations and expand capabilities:
+\begin{enumerate}
+    \item \textbf{Independent Security Audit}: Preparing the codebase for an independent, third-party security audit of our SCRAM-SHA-256 authentication flows and AES-256-GCM encryption pipelines to ensure cryptographic integrity against advanced adversarial models.
+    
+    \item \textbf{Optimized P2P Mesh Video}: Expanding Sprint 4 audio pipelines to support multi-party P2P mesh video calling, utilizing SFU (Selective Forwarding Unit) architectures designed to protect peer IP privacy.
+    
+    \item \textbf{Contributor Documentation}: Publishing onboarding guides, security contribution protocols, and self-hosting documentation for the global open-source community.
+
+    \item \textbf{Advanced Client-Side Search Indexing}: Although the architecture prevents server-side indexing of message content, the current client-side implementation using IndexedDB may face latency issues with large conversation histories. Future development will focus on integrating lightweight, browser-based Full-Text Search (FTS) engines to enable near-instant retrieval across extensive logs.
+
+    \item \textbf{Migration to True Client-Side Key Management}: Currently, the platform utilizes a server-managed secret key for encryption. A critical future upgrade involves migrating to a decentralized key generation model where keys are generated and stored exclusively on the client device, achieving the strict Zero-Knowledge architecture where the server holds no decryption capability.
+
+    \item \textbf{Cross-Device Synchronization}: Currently, the reliance on local IndexedDB containers binds data to a single device. A critical future upgrade involves implementing a secure multi-device synchronization protocol, allowing users to securely port their encrypted keys and message history between desktop and mobile clients without exposing sensitive data to the relay server.
+\end{enumerate}
+This senior thesis project at ITEAM successfully demonstrates that secure, decentralized communication is a viable, high-performance option for modern online communities.

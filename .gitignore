@@ -1,0 +1,15 @@
+# LaTeX Auxiliary Files
+*.aux
+*.lof
+*.log
+*.lot
+*.out
+*.toc
+*.synctex.gz
+*.synctex(busy)
+*.pdf
+*.bbl
+*.blg
+
+# VS Code settings
+.vscode/

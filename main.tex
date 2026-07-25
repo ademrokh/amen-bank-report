@@ -1,0 +1,95 @@
+% ==============================================================================
+% Main Driver File for the Discord Clone Project Report
+% Compile using: pdflatex main.tex && bibtex main.tex && pdflatex main.tex
+% ==============================================================================
+
+\documentclass[12pt,oneside,utf8]{report}
+
+% --- Font fallback to avoid missing Times TFM ---
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{float}
+\usepackage{longtable}
+
+% --- Load Design Configurations and Packages ---
+\input{preamble}
+
+% Ensure Latin Modern is used as a fallback for the Roman family to avoid
+% missing Times (ptm) TFM errors on systems without Times fonts installed.
+% This overrides any Times-like settings from the preamble if the Times TFM
+% files (e.g. ptmr8t.tfm) are not available.
+\renewcommand{\rmdefault}{lmr}
+\renewcommand{\ttdefault}{lmtt}
+
+
+\begin{document}
+
+% --- Cover Page ---
+\input{titlepage}
+
+% --- Front Matter ---
+\pagenumbering{roman}
+
+% 1. Abstracts (Multilingual summaries)
+\input{chapters/abstracts}
+\newpage
+
+% 2. Dedications & Acknowledgements
+\input{chapters/acknowledgements}
+\newpage
+
+% 3. Lists and Abbreviations
+\input{chapters/abbreviations}
+\newpage
+
+% Table of Contents
+\tableofcontents
+\newpage
+
+% List of Figures and Tables
+\listoffigures
+\newpage
+\listoftables
+\newpage
+
+% =====================================================================
+% 4. General Introduction - Arabic numbering starts HERE
+% =====================================================================
+\cleardoublepage
+\markboth{}{} % Clear stale running header (e.g. "LIST OF TABLES")
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+\input{chapters/introduction_general}
+\newpage
+
+% --- Core Report Chapters ---
+
+% Chapter 1: Preliminary Study, State of the Art, and Project Framework
+\input{chapters/chapter1}
+\newpage
+
+% Chapter 2: Analysis and Requirements Specification
+\input{chapters/chapter2}
+\newpage
+
+% Chapter 3: Design
+\input{chapters/chapter3}
+\newpage
+
+% Chapter 4: Implementation, Testing, and Deployment
+\input{chapters/chapter4}
+\newpage
+
+% --- Back Matter ---
+
+% General Conclusion
+\input{chapters/conclusion_general}
+\newpage
+
+% Bibliography
+\nocite{*}
+\bibliographystyle{alpha}
+\bibliography{references}
+
+\end{document}

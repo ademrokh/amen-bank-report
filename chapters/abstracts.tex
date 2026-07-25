@@ -1,0 +1,36 @@
+% Multilingual Abstracts
+
+\chapter*{Abstract}
+
+% REMOVED: \begin{quote} \small \paragraph{...} which caused LaTeX errors.
+% REPLACED WITH: Standard bold headings and split keywords.
+
+\noindent \textbf{\Large English Abstract}
+\vspace{0.5em}
+
+Modern centralized communication platforms pose significant privacy risks through invasive data harvesting. This report presents the design and implementation of a secure, open-source, privacy-respecting community collaboration platform as a decentralized alternative to proprietary services like Discord.
+
+The application utilizes a \textbf{Zero-Knowledge Architecture}, strictly separating client cryptographic operations from the neutral server relay. Text communication employs \textbf{Client-Side End-to-End Encryption (E2EE)} via the Web Cryptography API. Symmetric keys are established through Diffie-Hellman exchanges, encrypting payloads locally using \textbf{AES-256-GCM} before transmission. The server stores only unreadable ciphertexts. Authentication relies on \textbf{Argon2} hashing, with keys secured locally. Real-time voice calls bypass central servers using a \textbf{P2P WebRTC} architecture, secured by \textbf{DTLS/SRTP} protocols. Developed via Agile Scrum with a dedicated Security Champion role, the platform validates that the server stores only encrypted strings and voice streams route directly IP-to-IP, ensuring a secure and scalable collaboration ecosystem.
+
+\vspace{1em}
+
+\noindent \textbf{\Large Keywords:}
+% SPLIT INTO TWO LINES TO FIX OVERFULL BOX
+\textbf{Zero-Knowledge Architecture}, \textbf{E2EE}, \textbf{WebRTC P2P},\\
+\textbf{AES-GCM}, \textbf{DTLS/SRTP}.
+
+\vspace{1cm}
+
+\noindent \textbf{\Large Résumé (French Abstract)}
+\vspace{0.5em}
+
+Les plateformes de communication centralisées exposent les utilisateurs à des risques de surveillance et d'exploitation de données. Ce rapport présente le développement d'une plateforme de collaboration open-source et respectueuse de la vie privée, conçue comme alternative sécurisée aux services propriétaires.
+
+L'application repose sur une \textbf{architecture Zero-Knowledge}, isolant les opérations cryptographiques des clients du relais serveur. Les communications textuelles utilisent un chiffrement de bout en bout (\textbf{E2EE}) côté client via l'API Web Cryptography. Les clés symétriques sont échangées par Diffie-Hellman et chiffrées en \textbf{AES-256-GCM}. Le serveur ne stocke que des ciphertexts indéchiffrables. L'authentification utilise \textbf{Argon2} et le stockage local des clés. Les appels vocaux contournent les serveurs centraux via une architecture \textbf{WebRTC P2P}, sécurisée par \textbf{DTLS/SRTP}. Développée selon la méthode Agile Scrum (avec un "Security Champion"), la plateforme assure le stockage chiffré sur le serveur et l'acheminement direct des flux média.
+
+\vspace{1em}
+
+\noindent \textbf{\Large Mots-clés:}
+% SPLIT INTO TWO LINES TO FIX OVERFULL BOX
+\textbf{Zero-Knowledge}, \textbf{E2EE}, \textbf{WebRTC P2P}, \\
+\textbf{AES-GCM}, \textbf{DTLS/SRTP}.
